@@ -1,24 +1,27 @@
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <Wire.h>   // enable i2c communication
+#include <LiquidCrystal_I2C.h>   // controls i2c lcd
 
+// defining pins 
 #define VOLTAGE_PIN 34
 #define CURRENT_PIN 35
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 16, 2);   // defining address of a pin (ox27->address of lcd, 16 columns,2rows
 
+// assigning variables to 0 initially
 float voltage = 0;
 float current = 0;
 float power = 0;
 float energy = 0;
 
-unsigned long previousMillis = 0;
+unsigned long previousMillis = 0;   // for calculating energy over time
 
+// runs only nce when esp starts
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200);  // print reading on seril monitor
 
-  lcd.init();
-  lcd.backlight();
+  lcd.init();   // initialize i2c for communication
 
+  //set sensor pins as inputs
   pinMode(VOLTAGE_PIN, INPUT);
   pinMode(CURRENT_PIN, INPUT);
 
@@ -30,6 +33,7 @@ void setup() {
   lcd.clear();
 }
 
+// runs continuously after esp starts
 void loop() {
 
   int voltageADC = analogRead(VOLTAGE_PIN);
