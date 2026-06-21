@@ -1,0 +1,29 @@
+## VOLTAGE SENSOR <--> ESP-32
+
+
+Voltage Sensor    ESP32
+
+S      --------> GPIO34
++      --------> 3.3V
+-      --------> GND
+
+
+## CURRENT SENSOR <--> ESP-32
+
+
+ACS712           ESP32
+
+OUT    --------> GPIO35
+VCC    --------> 5V
+GND    --------> GND
+
+
+## ESP32-LCD 
+
+
+LCD I2C          ESP32
+
+SDA    --------> GPIO21
+SCL    --------> GPIO22
+VCC    --------> 3.3V/5V
+GND    --------> GND

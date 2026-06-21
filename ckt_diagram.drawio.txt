@@ -1,0 +1,14 @@
+Voltage Sensor ── GPIO34
+                     │
+ACS712 OUT ───── GPIO35
+                     │
+                 ESP32
+              ┌────┴────┐
+              │         │
+          GPIO21     GPIO22
+             │           │
+             └── I2C LCD ┘
+                  │
+               Wi‑Fi
+                  │
+                Cloud
